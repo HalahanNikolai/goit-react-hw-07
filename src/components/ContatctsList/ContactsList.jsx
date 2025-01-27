@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { getContacts, getFilter } from '../../redux/selectors';
 import {
   ContactListWrap,
   PhonebookList,
   PhonebookItem,
 } from './ContactsList.styled';
-import ContactsItem from 'components/ContactsItem/ContactsItem';
-import { fetchContacts } from 'redux/operations';
+import ContactsItem from '../ContactsItem/ContactsItem';
+import { fetchContacts } from '../../redux/operations';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -21,8 +21,8 @@ const ContactList = () => {
 
   const filteredContacts = filter
     ? items.filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    )
     : items;
 
   return (
