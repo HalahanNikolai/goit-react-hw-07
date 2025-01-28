@@ -7,7 +7,7 @@ import {
   PhonebookItem,
 } from './ContactsList.styled';
 import ContactsItem from '../ContactsItem/ContactsItem';
-import { fetchContacts } from '../../redux/operations';
+import { fetchContacts } from '../../redux/contactsOps';
 
 const ContactList = () => {
   const dispatch = useDispatch();
