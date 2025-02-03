@@ -11,8 +11,9 @@ import ContactsItem from '../ContactsItem/ContactsItem';
 
 const ContactList = () => {
 
-  // const contacts = useSelector(selectFilteredContacts);
-  // console.log("conactList.jsx:", contacts)
+  const filterNew = useSelector(selectFilteredContacts);
+
+  console.log("filterNew:", filterNew)
 
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);

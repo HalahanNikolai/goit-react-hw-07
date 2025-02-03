@@ -62,11 +62,15 @@ export const getFilter = state => state.filter;
 // console.log()
 
 export const selectFilteredContacts = createSelector(
-  [selectContactsList, getFilter],
+  [getContacts, getFilter],
   (contacts, filter) => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    console.log('contacts2:', contacts.items)
+    console.log('filter2:', filter)
+    if (filter > 0) {
+      return contacts.items.filter(contact =>
+        contact.name.toLowerCase().includes(filter.toLowerCase()))
+    }
+    return contacts.items
   }
 );
 
