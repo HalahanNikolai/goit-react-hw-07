@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getContacts, getFilter, selectError, selectIsLoading } from '../../redux/selectors';
+import { getContacts, selectError, selectIsLoading } from '../../redux/selectors';
 import { selectFilteredContacts } from '../../redux/contactsSlice';
 import {
   ContactListWrap,
@@ -11,20 +11,10 @@ import ContactsItem from '../ContactsItem/ContactsItem';
 
 const ContactList = () => {
 
-  const filterNew = useSelector(selectFilteredContacts);
-
-  console.log("filterNew:", filterNew)
-
+  const filteredContacts = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const { items } = useSelector(getContacts);
-  const filter = useSelector(getFilter);
-
-  const filteredContacts = filter
-    ? items.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    )
-    : items;
 
   return (
     <ContactListWrap>
